@@ -13,14 +13,11 @@ const popupAddNewCard = document.querySelector(".popup_type_new-card");
 
 // * buttons
 const popupEditOpenButton = document.querySelector(".profile__edit-button");
-const popupAddNewCardOpenButton = document.querySelector(
-  ".profile__add-button"
-);
+const popupAddNewCardOpenButton = document.querySelector(".profile__add-button");
 
 const popupEditCloseButton = popupEdit.querySelector(".popup__close");
 const popupImageCloseButton = popupImage.querySelector(".popup__close");
-const popupAddNewCardCloseButton =
-  popupAddNewCard.querySelector(".popup__close");
+const popupAddNewCardCloseButton = popupAddNewCard.querySelector(".popup__close");
 
 // * inputs
 const nameInput = document.querySelector(".popup__input_type_name");
@@ -43,7 +40,7 @@ const imageCaption = document.querySelector(".popup__caption");
 // !  Functions
 
 function addCard(cardData, cardContainer, newCard) {
-  const card = createCard(cardData);
+  const card = createCard(cardData, openPopupImg);
 
   if (newCard) {
     cardContainer.prepend(card);
@@ -96,10 +93,20 @@ function handleCardFormSubmit(evt) {
   formElementEdit.reset();
 }
 
-export function handlePreviewImage(popupImageData) {
+export function openPopupImg(evt) { 
+  const targetImage = evt.target; 
+  
+  const cardData = { 
+    name: targetImage.alt, 
+    link: targetImage.src 
+  }; 
+  
+
+  handlePreviewImage(cardData); 
+};
+
+function handlePreviewImage(popupImageData) {
   const imageElement = document.querySelector(".popup__image");
-  const imageCaption = document.querySelector(".popup__caption");
-  const popupImage = document.querySelector(".popup_type_image");
 
   openPopup(popupImage);
 
