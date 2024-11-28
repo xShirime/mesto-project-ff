@@ -17,7 +17,7 @@ function createCard(cardData, onDelete) {
 }
 
 function deleteCard(event) {
-  event.target.parentNode.remove();
+  event.target.closest('.card').remove();
 }
 
 initialCards.forEach((card) => {
