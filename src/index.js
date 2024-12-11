@@ -58,10 +58,8 @@ function openPopupEdit() {
   return;
 }
 
-function popupAddNewCardClose() {
+function closePopupAddNewCard() {
   closePopup(popupAddNewCard);
-
-  formElementAddNewCard.reset();
 }
 
 function handleEditFormSubmit(evt) {
@@ -88,9 +86,9 @@ function handleCardFormSubmit(evt) {
     true
   );
 
-  popupAddNewCardClose();
+  closePopupAddNewCard();
 
-  formElementEdit.reset();
+  formElementAddNewCard.reset();
 }
 
 export function openPopupImg(evt) { 
@@ -106,8 +104,6 @@ export function openPopupImg(evt) {
 };
 
 function handlePreviewImage(popupImageData) {
-  const imageElement = document.querySelector(".popup__image");
-
   openPopup(popupImage);
 
   imageElement.src = popupImageData.link;
@@ -150,12 +146,12 @@ popupAddNewCardOpenButton.addEventListener("click", function () {
 });
 
 popupAddNewCardCloseButton.addEventListener("click", function () {
-  popupAddNewCardClose();
+  closePopupAddNewCard();
 });
 
 popupAddNewCard.addEventListener("click", function (e) {
   if (!e.target.closest(".popup__content")) {
-    popupAddNewCardClose();
+    closePopupAddNewCard();
   }
 });
 
