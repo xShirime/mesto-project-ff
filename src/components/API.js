@@ -66,7 +66,6 @@ const putLikeCard = (cardId) =>
   fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
     method: "PUT",
     headers: config.headers,
-    body: JSON.stringify({ _id: cardId }),
   }).then(checkResponse);
 
 export {

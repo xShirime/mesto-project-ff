@@ -16,15 +16,15 @@ function createCard(item, deleteCallback, openImage, likeCallback, userId) {
 
   if (item.owner._id !== userId) {
     deleteButton.remove();
+  } else {
+    deleteButton.addEventListener("click", () => {
+      deleteCallback(cardBlock, item);
+    });
   }
 
   if (item.likes.some((like) => like._id === userId)) {
     likeButton.classList.add("card__like-button_is-active");
   }
-
-  deleteButton.addEventListener("click", () => {
-    deleteCallback(cardBlock, item);
-  });
 
   likeButton.addEventListener("click", () => {
     likeCallback(likeButton, likeCounter, item, userId);
