@@ -813,7 +813,7 @@ margin-left: 5px;
 .popup__content {
   max-width: 430px;
   width: 100%;
-  min-height: 330px;
+  min-height: 272px;
   background-color: #fff;
   border-radius: 10px;
   position: relative;
